@@ -21,7 +21,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.8
 .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-logo{font-family:var(--mono);font-size:15px;font-weight:500;color:var(--accent2);letter-spacing:0.05em}
 .nav-logo span{color:var(--teal)}
-.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;letter-spacing:0.02em}
 .nav-links a:hover{color:var(--text)}
 
@@ -40,6 +40,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.8
 .btn-primary:hover{background:var(--accent2);transform:translateY(-1px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);border:1px solid var(--border2);padding:12px 28px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.2s}
 .btn-ghost:hover{border-color:var(--accent);color:var(--text);transform:translateY(-1px)}
+.btn-teal{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,0.15);color:var(--teal);border:1px solid rgba(0,212,170,0.4);padding:12px 28px;border-radius:8px;font-size:15px;font-weight:600;text-decoration:none;cursor:pointer;transition:all 0.2s}
+.btn-teal:hover{background:rgba(0,212,170,0.25);transform:translateY(-1px)}
 .hero-stats{display:flex;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border);flex-wrap:wrap}
 .stat-num{font-size:2rem;font-weight:700;color:var(--accent2);font-family:var(--mono)}
 .stat-label{font-size:13px;color:var(--text3);margin-top:2px}
@@ -76,11 +78,8 @@ section{padding:6rem 2rem}
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;margin-top:3rem}
 .project-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.25s,border-color 0.25s;display:flex;flex-direction:column}
 .project-card:hover{transform:translateY(-4px);border-color:var(--accent)}
-
-/* LIVE DEMO AREA */
 .demo-area{height:320px;position:relative;overflow:hidden;background:var(--bg3);border-bottom:1px solid var(--border)}
 .demo-area iframe{width:100%;height:100%;border:none;display:block}
-
 .project-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
 .project-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem}
 .tag{background:var(--surface2);color:var(--text2);border:1px solid var(--border2);padding:3px 10px;border-radius:100px;font-size:11px;font-family:var(--mono)}
@@ -98,7 +97,29 @@ section{padding:6rem 2rem}
 .link-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
 .link-btn.primary:hover{background:var(--accent2)}
 
-#certificates{background:var(--bg)}
+/* ── RESUME SECTION ── */
+#resume{background:var(--bg)}
+.resume-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:3rem;margin-top:3rem;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.resume-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--accent))}
+.resume-info h3{font-size:1.4rem;font-weight:700;margin-bottom:0.5rem}
+.resume-info p{color:var(--text2);font-size:14px;line-height:1.7;max-width:500px;margin-bottom:1.2rem}
+.resume-highlights{display:flex;gap:2rem;flex-wrap:wrap}
+.rh-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2)}
+.rh-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.resume-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.btn-download{display:inline-flex;align-items:center;gap:10px;background:var(--teal);color:#0a0a0f;border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.btn-download:hover{background:#00f0c0;transform:translateY(-2px)}
+.btn-preview{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);border:1px solid var(--border2);padding:10px 24px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+.btn-preview:hover{border-color:var(--teal);color:var(--teal)}
+.resume-preview{margin-top:2rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:none}
+.resume-preview.show{display:block}
+.resume-preview iframe{width:100%;height:600px;border:none;display:block}
+.preview-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid var(--border);background:var(--surface)}
+.preview-header span{font-size:13px;color:var(--text2);font-family:var(--mono)}
+.preview-close{background:none;border:1px solid var(--border2);color:var(--text2);padding:5px 14px;border-radius:6px;font-size:12px;cursor:pointer;transition:all 0.2s}
+.preview-close:hover{border-color:var(--coral);color:var(--coral)}
+
+#certificates{background:var(--bg2)}
 .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
 .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:border-color 0.2s}
 .cert-card:hover{border-color:var(--accent)}
@@ -110,12 +131,13 @@ section{padding:6rem 2rem}
 .cert-link:hover{text-decoration:underline}
 
 #contact{background:var(--bg2)}
-.contact-inner{text-align:center;max-width:600px;margin:0 auto}
+.contact-inner{text-align:center;max-width:700px;margin:0 auto}
 .contact-inner .section-title{margin-bottom:1rem}
 .contact-inner .section-subtitle{margin-bottom:2.5rem}
 .contact-links{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
 .contact-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text2);font-size:14px;transition:all 0.2s}
 .contact-card:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
+.contact-card.github:hover{border-color:var(--teal);color:var(--teal)}
 
 footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text-align:center;color:var(--text3);font-size:13px}
 
@@ -134,6 +156,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -150,6 +173,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
       <a href="#projects" class="btn-primary">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
         View Projects
+      </a>
+      <a href="#resume" class="btn-teal">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download Resume
       </a>
       <a href="mailto:adityaaman7903380@gmail.com" class="btn-ghost">
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
@@ -174,6 +201,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
         <p>I'm a <strong>Computer Science engineer</strong> from Dayananda Sagar University, Bangalore, with a deep focus on Data Science, Machine Learning, and AI applications.</p>
         <p>Currently working as an <strong>Operations Associate at PhonePe</strong>, where I apply analytical thinking to KYC verification, fraud detection, and AML compliance — maintaining 99%+ data accuracy.</p>
         <p>My projects span <strong>medical image classification</strong> (detecting diabetic retinopathy with 94% CNN accuracy), <strong>financial fraud detection</strong> (87% accuracy), and <strong>data analytics dashboards</strong> processing 10,000+ records.</p>
+        <p>Find my open-source work on <a href="https://github.com/TechAadiAi" target="_blank" style="color:var(--teal);text-decoration:none;font-weight:500">GitHub @TechAadiAi</a> ↗</p>
       </div>
       <div class="skills-grid">
         <div class="skill-chip"><div class="skill-cat">Languages</div><div class="skill-list">Python · SQL · Java</div></div>
@@ -219,7 +247,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
     <p class="section-subtitle">Each project includes a fully interactive live demo — try them right here.</p>
     <div class="projects-grid">
 
-      <!-- PROJECT 1: DIABETIC RETINOPATHY -->
       <div class="project-card reveal">
         <div class="demo-area">
           <iframe id="demo1" srcdoc="" title="Diabetic Retinopathy Detection Demo"></iframe>
@@ -232,14 +259,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
             <span class="tag">Healthcare AI</span>
           </div>
           <div class="project-title">Diabetic Retinopathy Detection</div>
-          <div class="project-desc">Deep learning CNN model detecting diabetic retinopathy from retinal eye scans. Achieved 94% accuracy — helping reduce manual screening in healthcare settings. Select a scan above and click Analyze to see predictions live.</div>
+          <div class="project-desc">Deep learning CNN model detecting diabetic retinopathy from retinal eye scans. Achieved 94% accuracy — helping reduce manual screening in healthcare settings.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">94%</div><div class="metric-label">Accuracy</div></div>
             <div class="metric"><div class="metric-val">CNN</div><div class="metric-label">Architecture</div></div>
             <div class="metric"><div class="metric-val">Dec'23</div><div class="metric-label">Completed</div></div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/adityaaman" target="_blank" class="link-btn">
+            <a href="https://github.com/TechAadiAi" target="_blank" class="link-btn">
               <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
@@ -247,7 +274,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
         </div>
       </div>
 
-      <!-- PROJECT 2: FRAUD DETECTION -->
       <div class="project-card reveal">
         <div class="demo-area">
           <iframe id="demo2" srcdoc="" title="Credit Card Fraud Detection Demo"></iframe>
@@ -260,14 +286,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
             <span class="tag">FinTech</span>
           </div>
           <div class="project-title">Credit Card Fraud Detection</div>
-          <div class="project-desc">Logistic regression ML model achieving 87% accuracy in predicting credit card fraud. Reduced false positives by 16% through feature engineering. Try entering different transaction details above to see the model predict fraud risk.</div>
+          <div class="project-desc">Logistic regression ML model achieving 87% accuracy in predicting credit card fraud. Reduced false positives by 16% through feature engineering.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">87%</div><div class="metric-label">Accuracy</div></div>
             <div class="metric"><div class="metric-val">−16%</div><div class="metric-label">False Positives</div></div>
             <div class="metric"><div class="metric-val">+23%</div><div class="metric-label">Efficiency</div></div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/adityaaman" target="_blank" class="link-btn">
+            <a href="https://github.com/TechAadiAi" target="_blank" class="link-btn">
               <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
@@ -275,7 +301,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
         </div>
       </div>
 
-      <!-- PROJECT 3: INCOME DASHBOARD -->
       <div class="project-card reveal">
         <div class="demo-area">
           <iframe id="demo3" srcdoc="" title="Income & Demographics Dashboard Demo"></iframe>
@@ -288,14 +313,14 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
             <span class="tag">Dashboard</span>
           </div>
           <div class="project-title">Income &amp; Demographics Analysis Dashboard</div>
-          <div class="project-desc">Interactive dashboards analyzing demographic and income trends across 10,000+ records. Use the filters above to explore data by age group, gender, and education. Built with Excel and advanced data visualization techniques.</div>
+          <div class="project-desc">Interactive dashboards analyzing demographic and income trends across 10,000+ records. Built with Excel and advanced data visualization techniques.</div>
           <div class="project-metrics">
             <div class="metric"><div class="metric-val">10K+</div><div class="metric-label">Records</div></div>
             <div class="metric"><div class="metric-val">Jan'25</div><div class="metric-label">Completed</div></div>
             <div class="metric"><div class="metric-val">Excel</div><div class="metric-label">Platform</div></div>
           </div>
           <div class="project-links">
-            <a href="https://github.com/adityaaman" target="_blank" class="link-btn">
+            <a href="https://github.com/TechAadiAi" target="_blank" class="link-btn">
               <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
@@ -304,6 +329,47 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ── RESUME SECTION ── -->
+<section id="resume">
+  <div class="section-inner">
+    <div class="section-label">My Resume</div>
+    <h2 class="section-title">Download &amp; Preview</h2>
+    <p class="section-subtitle">My full resume covering experience, projects, skills, and certifications — ready to download.</p>
+
+    <div class="resume-card reveal">
+      <div class="resume-info">
+        <h3>Aditya Aman — Data &amp; AI Engineer</h3>
+        <p>B.Tech Computer Science · PhonePe Operations Associate · ML &amp; Deep Learning Projects · RapidMiner &amp; GFG Certified</p>
+        <div class="resume-highlights">
+          <div class="rh-item"><span class="rh-dot"></span>PhonePe · KYC &amp; Fraud Ops</div>
+          <div class="rh-item"><span class="rh-dot"></span>3 ML/AI Projects</div>
+          <div class="rh-item"><span class="rh-dot"></span>2 Certifications</div>
+          <div class="rh-item"><span class="rh-dot"></span>PDF · Updated 2025</div>
+        </div>
+      </div>
+      <div class="resume-actions">
+        <a href="aditya_resume.pdf" download="Aditya_Aman_Resume.pdf" class="btn-download">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resume
+        </a>
+        <button class="btn-preview" onclick="togglePreview()">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          Preview in browser
+        </button>
+      </div>
+    </div>
+
+    <div class="resume-preview" id="resumePreview">
+      <div class="preview-header">
+        <span>📄 Aditya_Aman_Resume.pdf</span>
+        <button class="preview-close" onclick="togglePreview()">✕ Close</button>
+      </div>
+      <iframe src="aditya_resume.pdf" title="Resume Preview"></iframe>
+    </div>
+
   </div>
 </section>
 
@@ -345,6 +411,10 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           LinkedIn Profile
         </a>
+        <a href="https://github.com/TechAadiAi" target="_blank" class="contact-card github">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          github.com/TechAadiAi
+        </a>
         <a href="tel:+917903380702" class="contact-card">
           <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10a19.79 19.79 0 01-3.07-8.67A2 2 0 012 1.41h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +91 7903380702
@@ -355,11 +425,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;text
 </section>
 
 <footer>
-  <p>Built by Aditya Aman · Data &amp; AI Engineer · Bangalore, India</p>
+  <p>Built by Aditya Aman · Data &amp; AI Engineer · Bangalore, India · <a href="https://github.com/TechAadiAi" target="_blank" style="color:var(--teal);text-decoration:none">@TechAadiAi</a></p>
 </footer>
 
 <script>
-/* TYPING EFFECT */
+function togglePreview(){
+  var p=document.getElementById('resumePreview');
+  p.classList.toggle('show');
+  if(p.classList.contains('show'))p.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
 const roles=['Data & AI Engineer','ML Practitioner','Data Analyst','Deep Learning Dev'];
 let ri=0,ci=0,deleting=false;
 const el=document.getElementById('typed-role');
@@ -371,239 +446,14 @@ function type(){
 }
 setTimeout(type,1000);
 
-/* SCROLL REVEAL */
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:0.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* ── DEMO 1: DIABETIC RETINOPATHY ── */
-document.getElementById('demo1').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0}
-h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:10px;text-align:center}
-p{font-size:11px;color:#9090b0;text-align:center;margin-bottom:10px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
-.card{background:#1c1c28;border:1.5px solid #2a2a42;border-radius:8px;padding:8px;cursor:pointer;text-align:center;transition:border-color 0.2s}
-.card.sel{border-color:#6c63ff}
-.card canvas{border-radius:4px;display:block;margin:0 auto 6px}
-.card span{font-size:10px;color:#9090b0}
-button{width:100%;padding:8px;background:#6c63ff;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:10px}
-.result{background:#1c1c28;border:1px solid #2a2a42;border-radius:8px;padding:12px;display:none}
-.badge{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;margin-bottom:8px}
-.b-normal{background:#04342c;color:#00d4aa}.b-mild{background:#412402;color:#fbbf24}.b-moderate{background:#4a1b0c;color:#ff6b6b}.b-severe{background:#501313;color:#ff4444}
-.row{display:flex;align-items:center;gap:6px;margin-bottom:5px}
-.rl{font-size:10px;color:#9090b0;width:64px}
-.track{flex:1;height:7px;background:#16161f;border-radius:4px;overflow:hidden}
-.fill{height:100%;border-radius:4px;transition:width 0.5s}
-.rv{font-size:10px;color:#e8e8f0;width:28px;text-align:right}
-.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
-.m{background:#16161f;border-radius:6px;padding:6px;text-align:center}
-.mv{font-size:14px;font-weight:700;color:#8b83ff}.ml{font-size:9px;color:#5c5c80}
-</style></head><body>
-<h3>Diabetic retinopathy detection</h3>
-<p>Select a retinal scan — CNN predicts severity</p>
-<div class="grid" id="g"></div>
-<button onclick="analyze()">Analyze selected scan</button>
-<div class="result" id="res">
-  <span class="badge" id="badge"></span>
-  <div id="bars"></div>
-  <div class="mrow">
-    <div class="m"><div class="mv">94%</div><div class="ml">Accuracy</div></div>
-    <div class="m"><div class="mv">CNN</div><div class="ml">Architecture</div></div>
-    <div class="m"><div class="mv" id="conf"></div><div class="ml">Confidence</div></div>
-  </div>
-</div>
-<script>
-var scans=[
-  {l:'Scan A',t:'normal',c:{Normal:91,Mild:6,Moderate:2,Severe:1}},
-  {l:'Scan B',t:'mild',c:{Normal:8,Mild:82,Moderate:7,Severe:3}},
-  {l:'Scan C',t:'moderate',c:{Normal:3,Mild:11,Moderate:79,Severe:7}},
-  {l:'Scan D',t:'severe',c:{Normal:2,Mild:4,Moderate:9,Severe:85}},
-];
-var sel=0;
-var colors={Normal:'#00d4aa',Mild:'#fbbf24',Moderate:'#ff6b6b',Severe:'#ff4444'};
-var bcls={Normal:'b-normal',Mild:'b-mild',Moderate:'b-moderate',Severe:'b-severe'};
-function drawScan(cv,seed,type){
-  var ctx=cv.getContext('2d'),w=cv.width,h=cv.height,cx=w/2,cy=h/2,r=w*0.42;
-  ctx.fillStyle='#0a0a0f';ctx.fillRect(0,0,w,h);
-  var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);
-  g.addColorStop(0,'#7a3010');g.addColorStop(0.5,'#4a1a06');g.addColorStop(1,'#0a0a0f');
-  ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-  ctx.strokeStyle='rgba(255,140,80,0.35)';ctx.lineWidth=0.8;
-  for(var i=0;i<5;i++){ctx.beginPath();var a=(seed*37+i*72)*Math.PI/180;ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*r*0.85,cy+Math.sin(a)*r*0.85);ctx.stroke();}
-  if(type!=='normal'){
-    var cnt=type==='mild'?3:type==='moderate'?7:14;
-    for(var j=0;j<cnt;j++){var px=cx+Math.cos(seed*j*1.3)*r*0.5,py=cy+Math.sin(seed*j*1.7)*r*0.5;ctx.beginPath();ctx.arc(px,py,1.5+j%2,0,Math.PI*2);ctx.fillStyle='rgba(255,80,80,0.85)';ctx.fill();}
-  }
-  ctx.beginPath();ctx.arc(cx+r*0.1,cy-r*0.1,r*0.1,0,Math.PI*2);ctx.fillStyle='rgba(255,220,80,0.55)';ctx.fill();
-}
-function buildGrid(){
-  var g=document.getElementById('g');
-  scans.forEach(function(s,i){
-    var d=document.createElement('div');d.className='card'+(i===0?' sel':'');
-    d.onclick=function(){sel=i;document.querySelectorAll('.card').forEach(function(c,j){c.classList.toggle('sel',j===i)});document.getElementById('res').style.display='none'};
-    var cv=document.createElement('canvas');cv.width=60;cv.height=60;
-    drawScan(cv,i+2,s.t);
-    var sp=document.createElement('span');sp.textContent=s.l;
-    d.appendChild(cv);d.appendChild(sp);g.appendChild(d);
-  });
-}
-function analyze(){
-  var s=scans[sel];
-  var top=Object.entries(s.c).sort(function(a,b){return b[1]-a[1]})[0];
-  var badge=document.getElementById('badge');
-  badge.textContent=top[0];badge.className='badge '+bcls[top[0]];
-  document.getElementById('conf').textContent=top[1]+'%';
-  var bars=document.getElementById('bars');bars.innerHTML='';
-  Object.entries(s.c).forEach(function(e){
-    bars.innerHTML+='<div class="row"><span class="rl">'+e[0]+'</span><div class="track"><div class="fill" style="width:'+e[1]+'%;background:'+colors[e[0]]+'"></div></div><span class="rv">'+e[1]+'%</span></div>';
-  });
-  document.getElementById('res').style.display='block';
-}
-buildGrid();
-<\/script></body></html>`;
+document.getElementById('demo1').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0}h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:10px;text-align:center}p{font-size:11px;color:#9090b0;text-align:center;margin-bottom:10px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.card{background:#1c1c28;border:1.5px solid #2a2a42;border-radius:8px;padding:8px;cursor:pointer;text-align:center;transition:border-color 0.2s}.card.sel{border-color:#6c63ff}.card canvas{border-radius:4px;display:block;margin:0 auto 6px}.card span{font-size:10px;color:#9090b0}button{width:100%;padding:8px;background:#6c63ff;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:10px}.result{background:#1c1c28;border:1px solid #2a2a42;border-radius:8px;padding:12px;display:none}.badge{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;margin-bottom:8px}.b-normal{background:#04342c;color:#00d4aa}.b-mild{background:#412402;color:#fbbf24}.b-moderate{background:#4a1b0c;color:#ff6b6b}.b-severe{background:#501313;color:#ff4444}.row{display:flex;align-items:center;gap:6px;margin-bottom:5px}.rl{font-size:10px;color:#9090b0;width:64px}.track{flex:1;height:7px;background:#16161f;border-radius:4px;overflow:hidden}.fill{height:100%;border-radius:4px;transition:width 0.5s}.rv{font-size:10px;color:#e8e8f0;width:28px;text-align:right}.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}.m{background:#16161f;border-radius:6px;padding:6px;text-align:center}.mv{font-size:14px;font-weight:700;color:#8b83ff}.ml{font-size:9px;color:#5c5c80}</style></head><body><h3>Diabetic retinopathy detection</h3><p>Select a retinal scan — CNN predicts severity</p><div class="grid" id="g"></div><button onclick="analyze()">Analyze selected scan</button><div class="result" id="res"><span class="badge" id="badge"></span><div id="bars"></div><div class="mrow"><div class="m"><div class="mv">94%</div><div class="ml">Accuracy</div></div><div class="m"><div class="mv">CNN</div><div class="ml">Architecture</div></div><div class="m"><div class="mv" id="conf"></div><div class="ml">Confidence</div></div></div></div><script>var scans=[{l:'Scan A',t:'normal',c:{Normal:91,Mild:6,Moderate:2,Severe:1}},{l:'Scan B',t:'mild',c:{Normal:8,Mild:82,Moderate:7,Severe:3}},{l:'Scan C',t:'moderate',c:{Normal:3,Mild:11,Moderate:79,Severe:7}},{l:'Scan D',t:'severe',c:{Normal:2,Mild:4,Moderate:9,Severe:85}}];var sel=0;var colors={Normal:'#00d4aa',Mild:'#fbbf24',Moderate:'#ff6b6b',Severe:'#ff4444'};var bcls={Normal:'b-normal',Mild:'b-mild',Moderate:'b-moderate',Severe:'b-severe'};function drawScan(cv,seed,type){var ctx=cv.getContext('2d'),w=cv.width,h=cv.height,cx=w/2,cy=h/2,r=w*0.42;ctx.fillStyle='#0a0a0f';ctx.fillRect(0,0,w,h);var g=ctx.createRadialGradient(cx,cy,0,cx,cy,r);g.addColorStop(0,'#7a3010');g.addColorStop(0.5,'#4a1a06');g.addColorStop(1,'#0a0a0f');ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();ctx.strokeStyle='rgba(255,140,80,0.35)';ctx.lineWidth=0.8;for(var i=0;i<5;i++){ctx.beginPath();var a=(seed*37+i*72)*Math.PI/180;ctx.moveTo(cx,cy);ctx.lineTo(cx+Math.cos(a)*r*0.85,cy+Math.sin(a)*r*0.85);ctx.stroke();}if(type!=='normal'){var cnt=type==='mild'?3:type==='moderate'?7:14;for(var j=0;j<cnt;j++){var px=cx+Math.cos(seed*j*1.3)*r*0.5,py=cy+Math.sin(seed*j*1.7)*r*0.5;ctx.beginPath();ctx.arc(px,py,1.5+j%2,0,Math.PI*2);ctx.fillStyle='rgba(255,80,80,0.85)';ctx.fill();}}ctx.beginPath();ctx.arc(cx+r*0.1,cy-r*0.1,r*0.1,0,Math.PI*2);ctx.fillStyle='rgba(255,220,80,0.55)';ctx.fill();}function buildGrid(){var g=document.getElementById('g');scans.forEach(function(s,i){var d=document.createElement('div');d.className='card'+(i===0?' sel':'');d.onclick=function(){sel=i;document.querySelectorAll('.card').forEach(function(c,j){c.classList.toggle('sel',j===i)});document.getElementById('res').style.display='none'};var cv=document.createElement('canvas');cv.width=60;cv.height=60;drawScan(cv,i+2,s.t);var sp=document.createElement('span');sp.textContent=s.l;d.appendChild(cv);d.appendChild(sp);g.appendChild(d);});}function analyze(){var s=scans[sel];var top=Object.entries(s.c).sort(function(a,b){return b[1]-a[1]})[0];var badge=document.getElementById('badge');badge.textContent=top[0];badge.className='badge '+bcls[top[0]];document.getElementById('conf').textContent=top[1]+'%';var bars=document.getElementById('bars');bars.innerHTML='';Object.entries(s.c).forEach(function(e){bars.innerHTML+='<div class="row"><span class="rl">'+e[0]+'</span><div class="track"><div class="fill" style="width:'+e[1]+'%;background:'+colors[e[0]]+'"></div></div><span class="rv">'+e[1]+'%</span></div>';});document.getElementById('res').style.display='block';}buildGrid();<\/script></body></html>`;
 
-/* ── DEMO 2: FRAUD DETECTION ── */
-document.getElementById('demo2').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0}
-h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:6px;text-align:center}
-p{font-size:11px;color:#9090b0;text-align:center;margin-bottom:10px}
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-label{font-size:10px;color:#9090b0;display:block;margin-bottom:3px}
-input,select{width:100%;padding:6px 8px;border:1px solid #2a2a42;border-radius:6px;background:#1c1c28;color:#e8e8f0;font-size:12px}
-button{width:100%;padding:8px;background:#185FA5;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:8px}
-.res{background:#1c1c28;border:1px solid #2a2a42;border-radius:8px;padding:10px}
-.verdict{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;margin-bottom:8px;font-size:12px;font-weight:600}
-.vl{background:#04342c}.vf{background:#501313}
-.meter{height:8px;background:#16161f;border-radius:4px;overflow:hidden;margin-bottom:8px}
-.mfill{height:100%;border-radius:4px;transition:width 0.5s}
-.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-.m{background:#16161f;border-radius:6px;padding:6px;text-align:center}
-.mv{font-size:14px;font-weight:700;color:#8b83ff}.ml{font-size:9px;color:#5c5c80}
-.tlist{margin-top:8px}
-.tp{font-size:10px;color:#5c5c80;margin-bottom:4px}
-.ti{display:flex;justify-content:space-between;padding:4px 8px;border-radius:4px;margin-bottom:3px;font-size:11px;background:#16161f}
-.tf{background:#1a0808}.tf span:last-child{color:#ff4444;font-weight:600}
-.tok span:last-child{color:#00d4aa;font-weight:600}
-</style></head><body>
-<h3>Credit card fraud detection</h3>
-<p>Enter transaction details — model predicts fraud probability</p>
-<div class="fgrid">
-  <div><label>Amount (₹)</label><input type="number" id="amt" value="12500"></div>
-  <div><label>Hour (0-23)</label><input type="number" id="hr" value="14" min="0" max="23"></div>
-  <div><label>Merchant</label><select id="mer"><option value="retail">Retail</option><option value="online">Online</option><option value="atm">ATM</option><option value="travel">Travel</option><option value="gambling">Gambling</option></select></div>
-  <div><label>Location</label><select id="loc"><option value="yes">Home city</option><option value="no">Different city</option><option value="foreign">Foreign</option></select></div>
-</div>
-<button onclick="predict()">Run fraud prediction</button>
-<div class="res" id="res">
-  <div class="verdict" id="verd"></div>
-  <div class="meter"><div class="mfill" id="mf"></div></div>
-  <div class="mrow">
-    <div class="m"><div class="mv" id="fp"></div><div class="ml">Fraud prob</div></div>
-    <div class="m"><div class="mv">87%</div><div class="ml">Accuracy</div></div>
-    <div class="m"><div class="mv" id="rl" style="font-size:12px"></div><div class="ml">Risk level</div></div>
-  </div>
-  <div class="tlist"><div class="tp">Recent transactions</div><div id="tl"></div></div>
-</div>
-<script>
-var colors={Low:'#00d4aa',Medium:'#fbbf24',High:'#ff4444'};
-function predict(){
-  var amt=parseFloat(document.getElementById('amt').value)||1000;
-  var hr=parseInt(document.getElementById('hr').value)||12;
-  var mer=document.getElementById('mer').value;
-  var loc=document.getElementById('loc').value;
-  var s=0.05;
-  if(amt>50000)s+=0.35;else if(amt>20000)s+=0.2;else if(amt>10000)s+=0.1;
-  if(hr>=0&&hr<=5)s+=0.25;else if(hr>=22)s+=0.15;
-  if(mer==='gambling')s+=0.4;else if(mer==='atm')s+=0.15;else if(mer==='online')s+=0.1;
-  if(loc==='foreign')s+=0.35;else if(loc==='no')s+=0.15;
-  s=Math.min(0.97,Math.max(0.02,s));
-  var pct=Math.round(s*100);
-  var fraud=s>0.5;
-  var risk=s>0.7?'High':s>0.4?'Medium':'Low';
-  var v=document.getElementById('verd');
-  v.className='verdict '+(fraud?'vf':'vl');
-  v.innerHTML=(fraud?'⚠️ Flagged as suspicious — review required':'✅ Transaction appears legitimate');
-  document.getElementById('mf').style.width=pct+'%';
-  document.getElementById('mf').style.background=colors[risk];
-  document.getElementById('fp').textContent=pct+'%';
-  var rl=document.getElementById('rl');rl.textContent=risk;rl.style.color=colors[risk];
-  var txns=[{d:'Grocery - BigBazaar',a:'₹2,340',f:false},{d:'Online - Amazon',a:'₹8,999',f:false},{d:mer==='gambling'?'Casino payment':'Merchant - '+mer,a:'₹'+amt.toLocaleString('en-IN'),f:fraud},{d:'Fuel - BPCL',a:'₹1,200',f:false}];
-  document.getElementById('tl').innerHTML=txns.map(function(t){return '<div class="ti '+(t.f?'tf':'tok')+'"><span>'+t.d+'</span><span>'+t.a+' — '+(t.f?'Flagged':'OK')+'</span></div>';}).join('');
-}
-predict();
-<\/script></body></html>`;
+document.getElementById('demo2').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0}h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:6px;text-align:center}p{font-size:11px;color:#9090b0;text-align:center;margin-bottom:10px}.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}label{font-size:10px;color:#9090b0;display:block;margin-bottom:3px}input,select{width:100%;padding:6px 8px;border:1px solid #2a2a42;border-radius:6px;background:#1c1c28;color:#e8e8f0;font-size:12px}button{width:100%;padding:8px;background:#185FA5;color:#fff;border:none;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;margin-bottom:8px}.res{background:#1c1c28;border:1px solid #2a2a42;border-radius:8px;padding:10px}.verdict{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;margin-bottom:8px;font-size:12px;font-weight:600}.vl{background:#04342c}.vf{background:#501313}.meter{height:8px;background:#16161f;border-radius:4px;overflow:hidden;margin-bottom:8px}.mfill{height:100%;border-radius:4px;transition:width 0.5s}.mrow{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.m{background:#16161f;border-radius:6px;padding:6px;text-align:center}.mv{font-size:14px;font-weight:700;color:#8b83ff}.ml{font-size:9px;color:#5c5c80}.tlist{margin-top:8px}.tp{font-size:10px;color:#5c5c80;margin-bottom:4px}.ti{display:flex;justify-content:space-between;padding:4px 8px;border-radius:4px;margin-bottom:3px;font-size:11px;background:#16161f}.tf{background:#1a0808}.tf span:last-child{color:#ff4444;font-weight:600}.tok span:last-child{color:#00d4aa;font-weight:600}</style></head><body><h3>Credit card fraud detection</h3><p>Enter transaction details — model predicts fraud probability</p><div class="fgrid"><div><label>Amount (₹)</label><input type="number" id="amt" value="12500"></div><div><label>Hour (0-23)</label><input type="number" id="hr" value="14" min="0" max="23"></div><div><label>Merchant</label><select id="mer"><option value="retail">Retail</option><option value="online">Online</option><option value="atm">ATM</option><option value="travel">Travel</option><option value="gambling">Gambling</option></select></div><div><label>Location</label><select id="loc"><option value="yes">Home city</option><option value="no">Different city</option><option value="foreign">Foreign</option></select></div></div><button onclick="predict()">Run fraud prediction</button><div class="res" id="res"><div class="verdict" id="verd"></div><div class="meter"><div class="mfill" id="mf"></div></div><div class="mrow"><div class="m"><div class="mv" id="fp"></div><div class="ml">Fraud prob</div></div><div class="m"><div class="mv">87%</div><div class="ml">Accuracy</div></div><div class="m"><div class="mv" id="rl" style="font-size:12px"></div><div class="ml">Risk level</div></div></div><div class="tlist"><div class="tp">Recent transactions</div><div id="tl"></div></div></div><script>var colors={Low:'#00d4aa',Medium:'#fbbf24',High:'#ff4444'};function predict(){var amt=parseFloat(document.getElementById('amt').value)||1000;var hr=parseInt(document.getElementById('hr').value)||12;var mer=document.getElementById('mer').value;var loc=document.getElementById('loc').value;var s=0.05;if(amt>50000)s+=0.35;else if(amt>20000)s+=0.2;else if(amt>10000)s+=0.1;if(hr>=0&&hr<=5)s+=0.25;else if(hr>=22)s+=0.15;if(mer==='gambling')s+=0.4;else if(mer==='atm')s+=0.15;else if(mer==='online')s+=0.1;if(loc==='foreign')s+=0.35;else if(loc==='no')s+=0.15;s=Math.min(0.97,Math.max(0.02,s));var pct=Math.round(s*100);var fraud=s>0.5;var risk=s>0.7?'High':s>0.4?'Medium':'Low';var v=document.getElementById('verd');v.className='verdict '+(fraud?'vf':'vl');v.innerHTML=(fraud?'⚠️ Flagged as suspicious — review required':'✅ Transaction appears legitimate');document.getElementById('mf').style.width=pct+'%';document.getElementById('mf').style.background=colors[risk];document.getElementById('fp').textContent=pct+'%';var rl=document.getElementById('rl');rl.textContent=risk;rl.style.color=colors[risk];var txns=[{d:'Grocery - BigBazaar',a:'₹2,340',f:false},{d:'Online - Amazon',a:'₹8,999',f:false},{d:mer==='gambling'?'Casino payment':'Merchant - '+mer,a:'₹'+amt.toLocaleString('en-IN'),f:fraud},{d:'Fuel - BPCL',a:'₹1,200',f:false}];document.getElementById('tl').innerHTML=txns.map(function(t){return '<div class="ti '+(t.f?'tf':'tok')+'"><span>'+t.d+'</span><span>'+t.a+' — '+(t.f?'Flagged':'OK')+'</span></div>';}).join('');}predict();<\/script></body></html>`;
 
-/* ── DEMO 3: INCOME DASHBOARD ── */
-document.getElementById('demo3').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0;font-size:12px}
-h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:4px;text-align:center}
-p{font-size:10px;color:#9090b0;text-align:center;margin-bottom:8px}
-.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-select{padding:5px 8px;border:1px solid #2a2a42;border-radius:6px;background:#1c1c28;color:#e8e8f0;font-size:11px;cursor:pointer}
-.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
-.met{background:#1c1c28;border-radius:6px;padding:8px;text-align:center}
-.mv{font-size:15px;font-weight:700;color:#378ADD}.ml{font-size:9px;color:#5c5c80;margin-top:2px}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.card{background:#1c1c28;border-radius:8px;padding:10px}
-.ct{font-size:11px;font-weight:600;color:#8b83ff;margin-bottom:8px}
-.br{display:flex;align-items:center;gap:6px;margin-bottom:5px}
-.bl{font-size:9px;color:#9090b0;width:40px;text-align:right;flex-shrink:0}
-.bt{flex:1;height:12px;background:#16161f;border-radius:3px;overflow:hidden}
-.bf{height:100%;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:3px;transition:width 0.5s}
-.bv{font-size:9px;color:#fff;font-weight:600}
-.leg{margin-top:6px}
-.li{display:flex;align-items:center;gap:5px;font-size:10px;color:#9090b0;margin-bottom:4px}
-.ld{width:8px;height:8px;border-radius:2px;flex-shrink:0}
-table{width:100%;border-collapse:collapse;font-size:11px}
-.tc{font-size:11px;font-weight:600;color:#8b83ff;margin-bottom:6px}
-th{text-align:left;padding:5px 6px;color:#9090b0;border-bottom:1px solid #2a2a42;font-weight:400}
-td{padding:5px 6px;border-bottom:1px solid #1c1c28;color:#e8e8f0}
-.bh{background:#04342c;color:#00d4aa;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}
-.bm{background:#412402;color:#fbbf24;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}
-.bl2{background:#501313;color:#ff4444;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}
-</style></head><body>
-<h3>Income &amp; demographics dashboard</h3>
-<p>10,247 records · Jan 2025</p>
-<div class="frow">
-  <select id="fa" onchange="update()"><option value="all">All ages</option><option value="young">18–34</option><option value="mid">35–54</option><option value="senior">55+</option></select>
-  <select id="fe" onchange="update()"><option value="all">All education</option><option value="grad">Graduate</option><option value="hs">High school</option></select>
-</div>
-<div class="mets">
-  <div class="met"><div class="mv" id="mr">10,247</div><div class="ml">Records</div></div>
-  <div class="met"><div class="mv" id="ma">₹54k</div><div class="ml">Avg income</div></div>
-  <div class="met"><div class="mv" id="mh">34%</div><div class="ml">High income</div></div>
-  <div class="met"><div class="mv" id="mg">+12%</div><div class="ml">YoY growth</div></div>
-</div>
-<div class="cards">
-  <div class="card"><div class="ct">Income by age group</div><div id="ac"></div></div>
-  <div class="card"><div class="ct">Education split</div><div class="leg" id="el"></div></div>
-</div>
-<div class="card"><div class="tc">Top occupations</div>
-<table><thead><tr><th>Occupation</th><th>Avg income</th><th>Tier</th></tr></thead><tbody id="tb"></tbody></table></div>
-<script>
-var data={
-  all:{r:'10,247',a:'₹54k',h:'34%',g:'+12%',ages:[{g:'18-24',v:28,c:'#378ADD'},{g:'25-34',v:52,c:'#534AB7'},{g:'35-44',v:71,c:'#1D9E75'},{g:'45-54',v:68,c:'#BA7517'},{g:'55-64',v:55,c:'#D85A30'},{g:'65+',v:38,c:'#888780'}],edu:[{l:'Graduate 45%',c:'#534AB7'},{l:'Some college 28%',c:'#378ADD'},{l:'High school 18%',c:'#1D9E75'},{l:'Other 9%',c:'#888780'}],occ:[{n:'Software Engineer',i:'₹92k',t:'h'},{n:'Data Analyst',i:'₹68k',t:'h'},{n:'Manager',i:'₹61k',t:'h'},{n:'Teacher',i:'₹38k',t:'m'},{n:'Retail Staff',i:'₹22k',t:'l'}]},
-  young:{r:'3,841',a:'₹41k',h:'18%',g:'+18%',ages:[{g:'18-24',v:28,c:'#378ADD'},{g:'25-34',v:52,c:'#534AB7'}],edu:[{l:'Graduate 55%',c:'#534AB7'},{l:'Some college 32%',c:'#378ADD'},{l:'High school 10%',c:'#1D9E75'},{l:'Other 3%',c:'#888780'}],occ:[{n:'Software Engineer',i:'₹78k',t:'h'},{n:'Data Analyst',i:'₹55k',t:'h'},{n:'Marketing Exec',i:'₹44k',t:'m'},{n:'Teacher',i:'₹32k',t:'m'},{n:'Retail Staff',i:'₹19k',t:'l'}]},
-  mid:{r:'4,102',a:'₹69k',h:'47%',g:'+9%',ages:[{g:'35-44',v:71,c:'#1D9E75'},{g:'45-54',v:68,c:'#BA7517'}],edu:[{l:'Graduate 42%',c:'#534AB7'},{l:'Some college 27%',c:'#378ADD'},{l:'High school 22%',c:'#1D9E75'},{l:'Other 9%',c:'#888780'}],occ:[{n:'Senior Manager',i:'₹105k',t:'h'},{n:'Software Engineer',i:'₹98k',t:'h'},{n:'Consultant',i:'₹82k',t:'h'},{n:'Accountant',i:'₹51k',t:'m'},{n:'Admin Staff',i:'₹28k',t:'l'}]},
-  senior:{r:'2,304',a:'₹47k',h:'28%',g:'+4%',ages:[{g:'55-64',v:55,c:'#D85A30'},{g:'65+',v:38,c:'#888780'}],edu:[{l:'Graduate 38%',c:'#534AB7'},{l:'Some college 24%',c:'#378ADD'},{l:'High school 28%',c:'#1D9E75'},{l:'Other 10%',c:'#888780'}],occ:[{n:'Executive',i:'₹88k',t:'h'},{n:'Consultant',i:'₹71k',t:'h'},{n:'Manager',i:'₹55k',t:'h'},{n:'Clerk',i:'₹31k',t:'m'},{n:'Part-time',i:'₹18k',t:'l'}]},
-};
-function update(){
-  var k=document.getElementById('fa').value;
-  var d=data[k]||data.all;
-  document.getElementById('mr').textContent=d.r;
-  document.getElementById('ma').textContent=d.a;
-  document.getElementById('mh').textContent=d.h;
-  document.getElementById('mg').textContent=d.g;
-  var mx=Math.max.apply(null,d.ages.map(function(a){return a.v}));
-  document.getElementById('ac').innerHTML=d.ages.map(function(a){return '<div class="br"><span class="bl">'+a.g+'</span><div class="bt"><div class="bf" style="width:'+Math.round(a.v/mx*100)+'%;background:'+a.c+'"><span class="bv">₹'+a.v+'k</span></div></div></div>';}).join('');
-  document.getElementById('el').innerHTML=d.edu.map(function(e){return '<div class="li"><span class="ld" style="background:'+e.c+'"></span>'+e.l+'</div>';}).join('');
-  var tc={h:'bh',m:'bm',l:'bl2'};
-  document.getElementById('tb').innerHTML=d.occ.map(function(o){return '<tr><td>'+o.n+'</td><td style="font-weight:600">'+o.i+'</td><td><span class="'+tc[o.t]+'">'+(o.t==='h'?'High':o.t==='m'?'Mid':'Low')+'</span></td></tr>';}).join('');
-}
-update();
-<\/script></body></html>`;
+document.getElementById('demo3').srcdoc=`<!DOCTYPE html><html><head><meta charset="UTF-8"><style>*{box-sizing:border-box;margin:0;padding:0}body{background:#0a0a0f;font-family:Inter,sans-serif;padding:12px;color:#e8e8f0;font-size:12px}h3{font-size:13px;font-weight:600;color:#8b83ff;margin-bottom:4px;text-align:center}p{font-size:10px;color:#9090b0;text-align:center;margin-bottom:8px}.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}select{padding:5px 8px;border:1px solid #2a2a42;border-radius:6px;background:#1c1c28;color:#e8e8f0;font-size:11px;cursor:pointer}.mets{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}.met{background:#1c1c28;border-radius:6px;padding:8px;text-align:center}.mv{font-size:15px;font-weight:700;color:#378ADD}.ml{font-size:9px;color:#5c5c80;margin-top:2px}.cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}.card{background:#1c1c28;border-radius:8px;padding:10px}.ct{font-size:11px;font-weight:600;color:#8b83ff;margin-bottom:8px}.br{display:flex;align-items:center;gap:6px;margin-bottom:5px}.bl{font-size:9px;color:#9090b0;width:40px;text-align:right;flex-shrink:0}.bt{flex:1;height:12px;background:#16161f;border-radius:3px;overflow:hidden}.bf{height:100%;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:3px;transition:width 0.5s}.bv{font-size:9px;color:#fff;font-weight:600}.leg{margin-top:6px}.li{display:flex;align-items:center;gap:5px;font-size:10px;color:#9090b0;margin-bottom:4px}.ld{width:8px;height:8px;border-radius:2px;flex-shrink:0}table{width:100%;border-collapse:collapse;font-size:11px}.tc{font-size:11px;font-weight:600;color:#8b83ff;margin-bottom:6px}th{text-align:left;padding:5px 6px;color:#9090b0;border-bottom:1px solid #2a2a42;font-weight:400}td{padding:5px 6px;border-bottom:1px solid #1c1c28;color:#e8e8f0}.bh{background:#04342c;color:#00d4aa;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}.bm{background:#412402;color:#fbbf24;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}.bl2{background:#501313;color:#ff4444;padding:2px 6px;border-radius:8px;font-size:9px;font-weight:600}</style></head><body><h3>Income &amp; demographics dashboard</h3><p>10,247 records · Jan 2025</p><div class="frow"><select id="fa" onchange="update()"><option value="all">All ages</option><option value="young">18–34</option><option value="mid">35–54</option><option value="senior">55+</option></select><select id="fe" onchange="update()"><option value="all">All education</option><option value="grad">Graduate</option><option value="hs">High school</option></select></div><div class="mets"><div class="met"><div class="mv" id="mr">10,247</div><div class="ml">Records</div></div><div class="met"><div class="mv" id="ma">₹54k</div><div class="ml">Avg income</div></div><div class="met"><div class="mv" id="mh">34%</div><div class="ml">High income</div></div><div class="met"><div class="mv" id="mg">+12%</div><div class="ml">YoY growth</div></div></div><div class="cards"><div class="card"><div class="ct">Income by age group</div><div id="ac"></div></div><div class="card"><div class="ct">Education split</div><div class="leg" id="el"></div></div></div><div class="card"><div class="tc">Top occupations</div><table><thead><tr><th>Occupation</th><th>Avg income</th><th>Tier</th></tr></thead><tbody id="tb"></tbody></table></div><script>var data={all:{r:'10,247',a:'₹54k',h:'34%',g:'+12%',ages:[{g:'18-24',v:28,c:'#378ADD'},{g:'25-34',v:52,c:'#534AB7'},{g:'35-44',v:71,c:'#1D9E75'},{g:'45-54',v:68,c:'#BA7517'},{g:'55-64',v:55,c:'#D85A30'},{g:'65+',v:38,c:'#888780'}],edu:[{l:'Graduate 45%',c:'#534AB7'},{l:'Some college 28%',c:'#378ADD'},{l:'High school 18%',c:'#1D9E75'},{l:'Other 9%',c:'#888780'}],occ:[{n:'Software Engineer',i:'₹92k',t:'h'},{n:'Data Analyst',i:'₹68k',t:'h'},{n:'Manager',i:'₹61k',t:'h'},{n:'Teacher',i:'₹38k',t:'m'},{n:'Retail Staff',i:'₹22k',t:'l'}]},young:{r:'3,841',a:'₹41k',h:'18%',g:'+18%',ages:[{g:'18-24',v:28,c:'#378ADD'},{g:'25-34',v:52,c:'#534AB7'}],edu:[{l:'Graduate 55%',c:'#534AB7'},{l:'Some college 32%',c:'#378ADD'},{l:'High school 10%',c:'#1D9E75'},{l:'Other 3%',c:'#888780'}],occ:[{n:'Software Engineer',i:'₹78k',t:'h'},{n:'Data Analyst',i:'₹55k',t:'h'},{n:'Marketing Exec',i:'₹44k',t:'m'},{n:'Teacher',i:'₹32k',t:'m'},{n:'Retail Staff',i:'₹19k',t:'l'}]},mid:{r:'4,102',a:'₹69k',h:'47%',g:'+9%',ages:[{g:'35-44',v:71,c:'#1D9E75'},{g:'45-54',v:68,c:'#BA7517'}],edu:[{l:'Graduate 42%',c:'#534AB7'},{l:'Some college 27%',c:'#378ADD'},{l:'High school 22%',c:'#1D9E75'},{l:'Other 9%',c:'#888780'}],occ:[{n:'Senior Manager',i:'₹105k',t:'h'},{n:'Software Engineer',i:'₹98k',t:'h'},{n:'Consultant',i:'₹82k',t:'h'},{n:'Accountant',i:'₹51k',t:'m'},{n:'Admin Staff',i:'₹28k',t:'l'}]},senior:{r:'2,304',a:'₹47k',h:'28%',g:'+4%',ages:[{g:'55-64',v:55,c:'#D85A30'},{g:'65+',v:38,c:'#888780'}],edu:[{l:'Graduate 38%',c:'#534AB7'},{l:'Some college 24%',c:'#378ADD'},{l:'High school 28%',c:'#1D9E75'},{l:'Other 10%',c:'#888780'}],occ:[{n:'Executive',i:'₹88k',t:'h'},{n:'Consultant',i:'₹71k',t:'h'},{n:'Manager',i:'₹55k',t:'h'},{n:'Clerk',i:'₹31k',t:'m'},{n:'Part-time',i:'₹18k',t:'l'}]}};function update(){var k=document.getElementById('fa').value;var d=data[k]||data.all;document.getElementById('mr').textContent=d.r;document.getElementById('ma').textContent=d.a;document.getElementById('mh').textContent=d.h;document.getElementById('mg').textContent=d.g;var mx=Math.max.apply(null,d.ages.map(function(a){return a.v}));document.getElementById('ac').innerHTML=d.ages.map(function(a){return '<div class="br"><span class="bl">'+a.g+'</span><div class="bt"><div class="bf" style="width:'+Math.round(a.v/mx*100)+'%;background:'+a.c+'"><span class="bv">₹'+a.v+'k</span></div></div></div>';}).join('');document.getElementById('el').innerHTML=d.edu.map(function(e){return '<div class="li"><span class="ld" style="background:'+e.c+'"></span>'+e.l+'</div>';}).join('');var tc={h:'bh',m:'bm',l:'bl2'};document.getElementById('tb').innerHTML=d.occ.map(function(o){return '<tr><td>'+o.n+'</td><td style="font-weight:600">'+o.i+'</td><td><span class="'+tc[o.t]+'">'+(o.t==='h'?'High':o.t==='m'?'Mid':'Low')+'</span></td></tr>';}).join('');}update();<\/script></body></html>`;
 </script>
 </body>
 </html>
